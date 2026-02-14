@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@500;700&family=Space+Grotesk:wght@400;500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&display=swap"
       rel="stylesheet"
     />
     <style>
@@ -34,7 +34,8 @@
       body {
         margin: 0;
         min-height: 100vh;
-        font-family: "Space Grotesk", "Helvetica Neue", Arial, sans-serif;
+        font-family: "IBM Plex Sans", "Helvetica Neue", Arial, sans-serif;
+        font-weight: 400;
         color: var(--ink);
         background:
           radial-gradient(900px 520px at 12% 8%, rgba(201, 162, 122, 0.18), transparent 60%),
@@ -69,7 +70,7 @@
         display: flex;
         align-items: center;
         gap: 14px;
-        font-family: "Big Shoulders Display", "Helvetica Neue", sans-serif;
+        font-family: "IBM Plex Sans", "Helvetica Neue", sans-serif;
         letter-spacing: 0.32em;
         text-transform: uppercase;
         font-size: 14px;
@@ -90,8 +91,7 @@
         display: flex;
         gap: 22px;
         font-size: 12px;
-        text-transform: uppercase;
-        letter-spacing: 0.22em;
+        letter-spacing: 0.12em;
       }
 
       .nav-links a {
@@ -143,10 +143,10 @@
 
       .hero h1 {
         margin: 0 0 12px;
-        font-family: "Big Shoulders Display", "Helvetica Neue", sans-serif;
+        font-family: "IBM Plex Sans", "Helvetica Neue", sans-serif;
         font-size: clamp(44px, 9vw, 96px);
-        letter-spacing: 0.12em;
-        text-transform: uppercase;
+        letter-spacing: 0.04em;
+        font-weight: 700;
       }
 
       .hero p {
@@ -174,9 +174,9 @@
       }
 
       .avatar {
-        width: 220px;
-        height: 220px;
-        border-radius: 50%;
+        width: 240px;
+        height: 240px;
+        border-radius: 15px;
         border: 1px solid var(--line);
         background: var(--surface);
         display: grid;
@@ -184,10 +184,12 @@
         overflow: hidden;
       }
 
-      .avatar svg {
+      .avatar img {
         width: 100%;
         height: 100%;
         display: block;
+        object-fit: cover;
+        object-position: center;
       }
 
       .btn {
@@ -251,16 +253,15 @@
 
       .section-title h2 {
         margin: 0;
-        font-family: "Big Shoulders Display", "Helvetica Neue", sans-serif;
-        text-transform: uppercase;
-        letter-spacing: 0.22em;
+        font-family: "IBM Plex Sans", "Helvetica Neue", sans-serif;
+        letter-spacing: 0.12em;
         font-size: clamp(24px, 5vw, 48px);
+        font-weight: 600;
       }
 
       .section-title span {
         font-size: 12px;
-        letter-spacing: 0.34em;
-        text-transform: uppercase;
+        letter-spacing: 0.16em;
         color: var(--muted);
       }
 
@@ -295,7 +296,7 @@
       }
 
       .project-index {
-        font-family: "Big Shoulders Display", "Helvetica Neue", sans-serif;
+        font-family: "IBM Plex Sans", "Helvetica Neue", sans-serif;
         font-size: 28px;
         letter-spacing: 0.2em;
         color: var(--accent-2);
@@ -428,8 +429,7 @@
         gap: 8px;
         text-align: right;
         font-size: 11px;
-        letter-spacing: 0.2em;
-        text-transform: uppercase;
+        letter-spacing: 0.14em;
         color: var(--muted);
       }
 
@@ -514,8 +514,7 @@
         margin: 0;
         color: var(--muted);
         font-size: 13px;
-        letter-spacing: 0.2em;
-        text-transform: uppercase;
+        letter-spacing: 0.08em;
       }
 
       .contact-form {
@@ -536,8 +535,7 @@
 
       .form-field label {
         font-size: 11px;
-        letter-spacing: 0.24em;
-        text-transform: uppercase;
+        letter-spacing: 0.08em;
         color: var(--muted);
       }
 
@@ -623,8 +621,7 @@
         padding: 40px 18px 60px;
         color: var(--muted);
         font-size: 11px;
-        letter-spacing: 0.28em;
-        text-transform: uppercase;
+        letter-spacing: 0.18em;
         display: grid;
         gap: 16px;
         justify-items: center;
@@ -761,26 +758,8 @@
             </div>
           </div>
           <div class="hero-identity">
-            <div class="avatar" aria-label="Portrait placeholder">
-              <svg viewBox="0 0 220 220" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true">
-                <defs>
-                  <radialGradient id="halo" cx="35%" cy="30%" r="60%">
-                    <stop offset="0%" stop-color="#c9a27a" stop-opacity="0.4"/>
-                    <stop offset="100%" stop-color="#f6f2ec" stop-opacity="0"/>
-                  </radialGradient>
-                  <linearGradient id="steel" x1="0" y1="0" x2="1" y2="1">
-                    <stop offset="0%" stop-color="#e7ded2"/>
-                    <stop offset="100%" stop-color="#ffffff"/>
-                  </linearGradient>
-                </defs>
-                <rect width="220" height="220" fill="url(#steel)"/>
-                <circle cx="110" cy="110" r="90" fill="url(#halo)"/>
-                <circle cx="110" cy="94" r="46" fill="#e7ded2" stroke="#3f5568" stroke-width="2"/>
-                <path d="M50 200c8-42 46-66 60-66h0c14 0 52 24 60 66" fill="#f0e9df" stroke="#3f5568" stroke-width="2"/>
-                <circle cx="86" cy="94" r="6" fill="#3f5568" opacity="0.8"/>
-                <circle cx="134" cy="94" r="6" fill="#3f5568" opacity="0.8"/>
-                <rect x="86" y="120" width="48" height="8" rx="4" fill="#3f5568"/>
-              </svg>
+            <div class="avatar" aria-label="Max Grant Smith">
+              <img src="mxgsmith_headshow1.png" alt="Max Grant Smith headshot" />
             </div>
           </div>
         </div>
