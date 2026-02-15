@@ -7,20 +7,21 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&family=Work+Sans:wght@400;500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Instrument+Serif:wght@400;600&family=Space+Grotesk:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
     <style>
       :root {
-        --bg: #f6f2ec;
-        --ink: #2b2f33;
-        --muted: #5f6770;
-        --line: rgba(43, 47, 51, 0.15);
-        --accent: #c9a27a;
-        --accent-2: #3f5568;
+        --bg: #f3efe7;
+        --ink: #141a1f;
+        --muted: #4e5a66;
+        --line: rgba(20, 26, 31, 0.12);
+        --accent: #f4b860;
+        --accent-2: #2f5d62;
         --surface: #ffffff;
-        --surface-2: #f0e9df;
-        --surface-3: #e7ded2;
+        --surface-2: #f7f1e7;
+        --surface-3: #e6e0d6;
+        --shadow: 0 24px 60px rgba(16, 20, 24, 0.18);
       }
 
       * {
@@ -34,17 +35,38 @@
       body {
         margin: 0;
         min-height: 100vh;
-        font-family: "Work Sans", "Helvetica Neue", Arial, sans-serif;
+        font-family: "Space Grotesk", "Helvetica Neue", Arial, sans-serif;
         font-weight: 400;
         color: var(--ink);
         background:
-          radial-gradient(900px 520px at 12% 8%, rgba(201, 162, 122, 0.18), transparent 60%),
-          radial-gradient(900px 500px at 88% 12%, rgba(63, 85, 104, 0.18), transparent 55%),
+          radial-gradient(900px 520px at 12% 8%, rgba(244, 184, 96, 0.2), transparent 60%),
+          radial-gradient(900px 520px at 88% 10%, rgba(47, 93, 98, 0.2), transparent 55%),
+          radial-gradient(600px 520px at 50% 80%, rgba(255, 255, 255, 0.6), transparent 70%),
           var(--bg);
       }
 
       .page {
         min-height: 100vh;
+        position: relative;
+      }
+
+      .page::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        background:
+          repeating-linear-gradient(
+            90deg,
+            rgba(20, 26, 31, 0.04) 0 1px,
+            transparent 1px 96px
+          ),
+          repeating-linear-gradient(
+            0deg,
+            rgba(20, 26, 31, 0.04) 0 1px,
+            transparent 1px 96px
+          );
+        opacity: 0.35;
       }
 
       .nav {
@@ -52,7 +74,7 @@
         top: 0;
         z-index: 10;
         backdrop-filter: blur(12px);
-        background: rgba(246, 242, 236, 0.88);
+        background: rgba(243, 239, 231, 0.88);
         border-bottom: 1px solid var(--line);
       }
 
@@ -70,7 +92,7 @@
         display: flex;
         align-items: center;
         gap: 14px;
-        font-family: "Work Sans", "Helvetica Neue", sans-serif;
+        font-family: "Space Grotesk", "Helvetica Neue", sans-serif;
         letter-spacing: 0.32em;
         text-transform: uppercase;
         font-size: 14px;
@@ -85,13 +107,14 @@
         place-items: center;
         background: linear-gradient(140deg, var(--surface-3), var(--surface));
         font-weight: 700;
+        color: var(--accent-2);
       }
 
       .nav-links {
         display: flex;
         gap: 22px;
         font-size: 12px;
-        letter-spacing: 0.12em;
+        letter-spacing: 0.16em;
       }
 
       .nav-links a {
@@ -141,11 +164,32 @@
         flex-wrap: wrap;
       }
 
+      .hero.section-inner {
+        min-height: calc(100vh - 96px);
+        padding-top: clamp(110px, 14vh, 160px);
+        padding-bottom: clamp(80px, 12vh, 140px);
+      }
+
+      .hero-kicker {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 6px 14px;
+        border-radius: 999px;
+        border: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.7);
+        font-size: 11px;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: var(--accent-2);
+        margin-bottom: 14px;
+      }
+
       .hero h1 {
         margin: 0 0 12px;
-        font-family: "Fraunces", "Georgia", serif;
-        font-size: clamp(44px, 9vw, 96px);
-        letter-spacing: 0.04em;
+        font-family: "Instrument Serif", "Georgia", serif;
+        font-size: clamp(56px, 10vw, 112px);
+        letter-spacing: 0.02em;
         font-weight: 700;
       }
 
@@ -153,7 +197,7 @@
         margin: 0 0 24px;
         color: var(--muted);
         line-height: 1.7;
-        font-size: 18px;
+        font-size: 20px;
       }
 
       .hero-copy {
@@ -174,8 +218,8 @@
       }
 
       .avatar {
-        width: 280px;
-        height: 280px;
+        width: 320px;
+        height: 320px;
         border-radius: 15px;
         border: 1px solid var(--line);
         background: var(--surface);
@@ -216,8 +260,8 @@
 
       .avatar {
         box-shadow:
-          0 24px 50px rgba(20, 24, 28, 0.18),
-          inset 0 0 40px rgba(20, 24, 28, 0.2);
+          0 28px 60px rgba(20, 24, 28, 0.2),
+          inset 0 0 40px rgba(20, 24, 28, 0.18);
       }
 
       .btn {
@@ -227,22 +271,30 @@
         background: transparent;
         color: var(--ink);
         font-weight: 600;
-        letter-spacing: 0.18em;
+        letter-spacing: 0.14em;
         text-transform: uppercase;
         font-size: 12px;
         cursor: pointer;
-        transition: border 150ms ease, transform 150ms ease;
+        transition: border 150ms ease, transform 150ms ease, box-shadow 150ms ease;
       }
 
       .btn:hover {
         transform: translateY(-2px);
         border-color: var(--accent-2);
+        box-shadow: 0 14px 24px rgba(20, 24, 28, 0.12);
       }
 
       .btn.solid {
         background: var(--accent);
         color: #2b2f33;
         border-color: transparent;
+        box-shadow: 0 16px 30px rgba(244, 184, 96, 0.3);
+      }
+
+      .btn.small {
+        padding: 10px 18px;
+        font-size: 11px;
+        letter-spacing: 0.18em;
       }
 
       .hero-meta {
@@ -281,7 +333,7 @@
 
       .section-title h2 {
         margin: 0;
-        font-family: "Fraunces", "Georgia", serif;
+        font-family: "Instrument Serif", "Georgia", serif;
         letter-spacing: 0.12em;
         font-size: clamp(24px, 5vw, 48px);
         font-weight: 600;
@@ -295,7 +347,7 @@
 
       .project-rows {
         display: grid;
-        gap: 28px;
+        gap: 22px;
       }
 
       .project-row {
@@ -303,23 +355,30 @@
         grid-template-columns: 200px minmax(240px, 1fr) 220px;
         gap: 24px;
         align-items: center;
-        padding: 24px 0;
-        border-top: 1px solid var(--line);
+        padding: 22px;
+        border: 1px solid var(--line);
+        border-radius: 20px;
+        background: rgba(255, 255, 255, 0.66);
         cursor: pointer;
-        transition: color 150ms ease;
+        transition: color 150ms ease, transform 150ms ease, box-shadow 150ms ease;
       }
 
       .project-row:first-child {
-        border-top: none;
+        border-top: 1px solid var(--line);
       }
 
       .project-row:hover .project-index {
         color: var(--accent-2);
       }
 
-      .project-row:hover .project-preview {
+      .project-row:hover {
         transform: translateY(-4px);
-        box-shadow: 0 20px 40px rgba(5, 10, 14, 0.45);
+        box-shadow: var(--shadow);
+      }
+
+      .project-row:hover .project-preview {
+        transform: translateY(-6px);
+        box-shadow: 0 20px 40px rgba(5, 10, 14, 0.35);
         border-color: rgba(63, 85, 104, 0.45);
       }
 
@@ -331,8 +390,8 @@
       }
 
       .project-preview {
-        width: 200px;
-        height: 120px;
+        width: 220px;
+        height: 140px;
         border-radius: 14px;
         border: 1px solid var(--line);
         background: linear-gradient(135deg, rgba(201, 162, 122, 0.22), var(--surface-2));
@@ -373,7 +432,7 @@
         border: 1px solid var(--line);
         border-radius: 26px;
         overflow: hidden;
-        box-shadow: 0 40px 80px rgba(4, 8, 12, 0.6);
+        box-shadow: 0 40px 80px rgba(4, 8, 12, 0.5);
         display: grid;
         grid-template-columns: 1.1fr 1fr;
       }
@@ -461,11 +520,17 @@
         color: var(--muted);
       }
 
-      .about-grid,
+      .about-wrap,
       .contact-grid {
         display: grid;
-        grid-template-columns: minmax(240px, 320px) 1fr;
         gap: 28px;
+      }
+
+      .about-row {
+        display: grid;
+        grid-template-columns: minmax(240px, 340px) 1fr;
+        gap: 28px;
+        align-items: center;
       }
 
       .about-block,
@@ -493,7 +558,7 @@
         height: 240px;
         border-radius: 18px;
         border: 1px solid var(--line);
-        background: #f7f2ec;
+        background: linear-gradient(130deg, rgba(244, 184, 96, 0.22), rgba(255, 255, 255, 0.8));
         display: grid;
         place-items: center;
         overflow: hidden;
@@ -507,38 +572,40 @@
 
       .about-copy {
         display: grid;
-        gap: 12px;
+        gap: 16px;
       }
 
-      .about-stats {
-        margin-top: 36px;
+      .about-cards {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
         gap: 20px;
       }
 
-      .stat-card {
+      .about-card {
         border: 1px solid var(--line);
         border-radius: 18px;
         padding: 20px;
         background: var(--surface);
         display: grid;
         gap: 12px;
+        box-shadow: 0 16px 40px rgba(20, 24, 28, 0.06);
       }
 
-      .stat-card svg {
+      .about-card svg {
         width: 32px;
         height: 32px;
         color: var(--accent);
       }
 
-      .stat-card h4 {
+      .about-card h4 {
         margin: 0;
-        font-size: 16px;
-        letter-spacing: 0.04em;
+        font-size: 14px;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: var(--accent-2);
       }
 
-      .stat-card p {
+      .about-card p {
         margin: 0;
         color: var(--muted);
         font-size: 13px;
@@ -655,6 +722,17 @@
         justify-items: center;
       }
 
+      .reveal {
+        opacity: 0;
+        transform: translateY(18px);
+        transition: opacity 500ms ease, transform 500ms ease;
+      }
+
+      .reveal.in {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
       .footer-icons {
         display: flex;
         gap: 16px;
@@ -718,6 +796,10 @@
           border-top: 1px solid var(--line);
           padding-top: 16px;
         }
+
+        .about-row {
+          grid-template-columns: 1fr;
+        }
       }
 
       @media (max-width: 720px) {
@@ -730,7 +812,7 @@
   <body>
     <div class="page">
       <header class="nav">
-        <div class="nav-inner">
+        <div class="nav-inner reveal in">
           <div class="brand">
             <div class="brand-mark">MX</div>
             <span>Max Grant Smith</span>
@@ -740,6 +822,7 @@
             <a href="#about">About</a>
             <a href="#contact">Contact</a>
           </nav>
+          <a class="btn solid small" href="#contact">Start a Project</a>
         </div>
       </header>
 
@@ -771,8 +854,9 @@
           />
         </svg>
 
-        <div class="section-inner hero">
-          <div class="hero-copy">
+        <div class="section-inner hero reveal in">
+          <div class="hero-copy reveal in">
+            <div class="hero-kicker">Learning Experience Design</div>
             <h1>Hi, I'm Max</h1>
             <p>
               I help businesses build scalable and meaningful learning experiences.
@@ -782,7 +866,7 @@
               <a class="btn" href="#about">About Me</a>
             </div>
           </div>
-          <div class="hero-identity">
+          <div class="hero-identity reveal in">
             <div class="avatar" aria-label="Max Grant Smith">
               <img src="mxgsmith_headshot1.png" alt="Max Grant Smith headshot" />
             </div>
@@ -791,78 +875,81 @@
       </section>
 
       <section class="section tone-c" id="about">
-        <div class="section-inner">
+        <div class="section-inner reveal">
           <div class="section-title">
             <h2>About</h2>
             <span>Process + values</span>
           </div>
-          <div class="about-grid">
-            <div class="about-visual" aria-label="Compass graphic">
-              <svg viewBox="0 0 320 240" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true">
-                <rect width="320" height="240" fill="#ffffff"/>
-                <circle cx="160" cy="120" r="76" fill="none" stroke="#3f5568" stroke-width="2" opacity="0.7"/>
-                <circle cx="160" cy="120" r="52" fill="none" stroke="#9aa6b2" stroke-width="2"/>
-                <circle cx="160" cy="120" r="6" fill="#c9a27a"/>
-                <path d="M160 40v20M160 180v20M80 120h20M220 120h20" stroke="#9aa6b2" stroke-width="2"/>
-                <path d="M160 70l20 50-20 50-20-50z" fill="#f0e9df" stroke="#3f5568" stroke-width="1.5"/>
-                <path d="M160 85l12 35-12 35-12-35z" fill="#c9a27a" opacity="0.4"/>
-                <text x="160" y="38" text-anchor="middle" fill="#3f5568" font-size="12" font-family="Space Grotesk">N</text>
-                <text x="160" y="214" text-anchor="middle" fill="#9aa6b2" font-size="12" font-family="Space Grotesk">S</text>
-                <text x="62" y="124" text-anchor="middle" fill="#9aa6b2" font-size="12" font-family="Space Grotesk">W</text>
-                <text x="258" y="124" text-anchor="middle" fill="#9aa6b2" font-size="12" font-family="Space Grotesk">E</text>
-              </svg>
-            </div>
-            <div class="about-copy">
-              <div class="about-block">
-                <h3>Work Approach</h3>
-                <p>
-                  I build learning experiences the way architects build spaces: clear intent, strong
-                  structure, and measured pacing. Each project starts with a single objective, then
-                  moves through disciplined systems that balance clarity, tone, and performance.
-                </p>
+          <div class="about-wrap">
+            <div class="about-row">
+              <div class="about-visual" aria-label="Compass graphic">
+                <svg viewBox="0 0 320 240" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true">
+                  <rect width="320" height="240" fill="#ffffff"/>
+                  <circle cx="160" cy="120" r="76" fill="none" stroke="#2f5d62" stroke-width="2" opacity="0.7"/>
+                  <circle cx="160" cy="120" r="52" fill="none" stroke="#9aa6b2" stroke-width="2"/>
+                  <circle cx="160" cy="120" r="6" fill="#f4b860"/>
+                  <path d="M160 40v20M160 180v20M80 120h20M220 120h20" stroke="#9aa6b2" stroke-width="2"/>
+                  <path d="M160 70l20 50-20 50-20-50z" fill="#f7f1e7" stroke="#2f5d62" stroke-width="1.5"/>
+                  <path d="M160 85l12 35-12 35-12-35z" fill="#f4b860" opacity="0.4"/>
+                  <text x="160" y="38" text-anchor="middle" fill="#2f5d62" font-size="12" font-family="Space Grotesk">N</text>
+                  <text x="160" y="214" text-anchor="middle" fill="#9aa6b2" font-size="12" font-family="Space Grotesk">S</text>
+                  <text x="62" y="124" text-anchor="middle" fill="#9aa6b2" font-size="12" font-family="Space Grotesk">W</text>
+                  <text x="258" y="124" text-anchor="middle" fill="#9aa6b2" font-size="12" font-family="Space Grotesk">E</text>
+                </svg>
               </div>
-              <div class="about-block">
-                <h3>Collaboration Style</h3>
-                <p>
-                  I work closely with stakeholders to translate complex ideas into clean, scalable
-                  learning systems. The result is focused, modern design that feels confident and
-                  usable without excess.
-                </p>
+              <div class="about-copy">
+                <div class="about-block">
+                  <h3>Work Approach</h3>
+                  <p>
+                    I build learning experiences the way architects build spaces: clear intent, strong
+                    structure, and measured pacing. Each project starts with a single objective, then
+                    moves through disciplined systems that balance clarity, tone, and performance.
+                  </p>
+                </div>
+                <div class="about-block">
+                  <h3>Collaboration Style</h3>
+                  <p>
+                    I work closely with stakeholders to translate complex ideas into clean, scalable
+                    learning systems. The result is focused, modern design that feels confident and
+                    usable without excess.
+                  </p>
+                </div>
               </div>
             </div>
-          </div>
-          <div class="about-stats">
-            <div class="stat-card">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
-                <path d="M12 2l7 4v6c0 5-3.5 8.5-7 10-3.5-1.5-7-5-7-10V6l7-4z"/>
-                <path d="M12 6v4m0 4h.01"/>
-              </svg>
-              <h4>Based in Atlanta</h4>
-              <p>Independent Consultant</p>
-            </div>
-            <div class="stat-card">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
-                <circle cx="12" cy="12" r="9"/>
-                <path d="M12 7v6l4 2"/>
-              </svg>
-              <h4>10 Years at Google</h4>
-              <p>Across Policy, Operations, and Support</p>
-            </div>
-            <div class="stat-card">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
-                <path d="M4 18v-2a4 4 0 0 1 4-4h8a4 4 0 0 1 4 4v2"/>
-                <circle cx="9" cy="8" r="3"/>
-                <circle cx="15" cy="8" r="3"/>
-              </svg>
-              <h4>10,000 Learners Trained</h4>
-              <p>Across Vendors and Internal Partners</p>
+
+            <div class="about-cards">
+              <div class="about-card">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+                  <path d="M12 2l7 4v6c0 5-3.5 8.5-7 10-3.5-1.5-7-5-7-10V6l7-4z"/>
+                  <path d="M12 6v4m0 4h.01"/>
+                </svg>
+                <h4>Capabilities</h4>
+                <p>Learning strategy, curriculum design, microlearning systems, video, LMS enablement.</p>
+              </div>
+              <div class="about-card">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+                  <circle cx="12" cy="12" r="9"/>
+                  <path d="M12 7v6l4 2"/>
+                </svg>
+                <h4>Outcomes</h4>
+                <p>Shorter ramp time, higher completion, and clearer handoffs through reusable systems.</p>
+              </div>
+              <div class="about-card">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+                  <path d="M4 18v-2a4 4 0 0 1 4-4h8a4 4 0 0 1 4 4v2"/>
+                  <circle cx="9" cy="8" r="3"/>
+                  <circle cx="15" cy="8" r="3"/>
+                </svg>
+                <h4>Principles</h4>
+                <p>Clarity over cleverness, momentum over bloat, and design that earns trust.</p>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       <section class="section tone-b" id="projects">
-        <div class="section-inner">
+        <div class="section-inner reveal">
           <div class="section-title">
             <h2>Projects</h2>
             <span>Selected work</span>
@@ -951,7 +1038,7 @@
       </section>
 
       <section class="section tone-c" id="faq">
-        <div class="section-inner">
+        <div class="section-inner reveal">
           <div class="section-title">
             <h2>FAQ</h2>
             <span>Quick answers</span>
@@ -974,7 +1061,7 @@
       </section>
 
       <section class="section tone-b" id="contact">
-        <div class="section-inner">
+        <div class="section-inner reveal">
           <div class="section-title">
             <h2>Contact</h2>
             <span>Let’s build</span>
@@ -1026,7 +1113,7 @@
         </div>
       </div>
 
-      <footer class="footer">
+      <footer class="footer reveal">
         <div class="footer-icons">
           <a href="#" aria-label="GitHub">
             <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -1171,6 +1258,31 @@
       window.addEventListener("keydown", (event) => {
         if (event.key === "Escape") closeOverlay();
       });
+
+      const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+      const revealItems = document.querySelectorAll(".reveal");
+
+      if (prefersReducedMotion.matches) {
+        revealItems.forEach((item) => item.classList.add("in"));
+      } else {
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("in");
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.2 }
+        );
+
+        revealItems.forEach((item) => {
+          if (!item.classList.contains("in")) {
+            observer.observe(item);
+          }
+        });
+      }
     </script>
   </body>
 </html>
