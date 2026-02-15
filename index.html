@@ -433,39 +433,94 @@
 
       .overlay-card {
         width: min(980px, 92vw);
-        height: min(90vh, 760px);
+        height: min(90vh, 820px);
         background: var(--surface);
         border: 1px solid var(--line);
         border-radius: 26px;
         overflow: hidden;
         box-shadow: 0 40px 80px rgba(4, 8, 12, 0.5);
         display: grid;
-        grid-template-columns: 0.95fr 1.05fr;
+        grid-template-rows: auto 1fr;
       }
 
       .overlay-media {
         background:
-          linear-gradient(140deg, rgba(201, 162, 122, 0.18), rgba(246, 242, 236, 0.8)),
-          var(--surface-2);
-        padding: 28px;
+          radial-gradient(700px 260px at 20% 30%, rgba(244, 184, 96, 0.18), transparent 60%),
+          radial-gradient(700px 260px at 80% 20%, rgba(47, 93, 98, 0.14), transparent 55%),
+          url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='900' height='300' viewBox='0 0 900 300'><rect width='900' height='300' fill='none'/><g stroke='%232f5d62' stroke-width='1' fill='none' opacity='0.1'><rect x='20' y='20' width='860' height='260'/><rect x='80' y='60' width='220' height='120'/><rect x='360' y='60' width='260' height='80'/><rect x='640' y='60' width='200' height='120'/><path d='M20 120h860M20 200h860'/><path d='M190 60v120M490 60v80M740 60v120'/></g><g stroke='%23f4b860' stroke-width='2' fill='none' opacity='0.08'><circle cx='150' cy='120' r='28'/><circle cx='470' cy='100' r='22'/><circle cx='730' cy='120' r='20'/></g></svg>");
+        background-color: var(--surface-2);
+        padding: 16px 24px;
         display: grid;
         place-items: center;
+        height: 220px;
       }
 
-      .overlay-media svg {
-        width: 100%;
-        height: auto;
-        border-radius: 16px;
+      .overlay-media-header {
+        width: min(820px, 100%);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 18px;
+        padding: 6px 0;
+      }
+
+      .overlay-media-tags {
+        margin-top: 6px;
+        font-size: 10px;
+        letter-spacing: 0.24em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+
+      .overlay-title-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+      }
+
+      .overlay-title-stack {
+        display: grid;
+        gap: 6px;
+      }
+
+      .overlay-symbolic {
+        width: 140px;
+        height: 90px;
+        border-radius: 12px;
         border: 1px solid var(--line);
         background: var(--surface-2);
+        display: grid;
+        place-items: center;
+        overflow: hidden;
+      }
+
+      .overlay-symbolic svg {
+        width: 100%;
+        height: 100%;
+        display: block;
+        transform: scale(0.82);
+        transform-origin: center;
       }
 
       .overlay-body {
-        padding: 32px;
+        padding: 22px 32px 32px;
         display: grid;
         gap: 16px;
         align-content: start;
         overflow-y: auto;
+      }
+
+      .overlay-columns {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 20px;
+        align-items: start;
+      }
+
+      .overlay-col {
+        display: grid;
+        gap: 16px;
       }
 
       .overlay-body h3 {
@@ -889,6 +944,10 @@
           background-position: left top, right top, center bottom, var(--faq-arch-pos-mobile);
           background-size: auto, auto, auto, 200%;
         }
+
+        .overlay-columns {
+          grid-template-columns: 1fr;
+        }
       }
 
       @media (max-width: 720px) {
@@ -1177,7 +1236,8 @@
               <p>Tell me about your course, platform, or curriculum and the timeline you need.</p>
               <p>Replies within 2 business days.</p>
             </div>
-            <form class="contact-form">
+            <form class="contact-form" action="https://formspree.io/f/xojndzaz" method="POST">
+              <input type="hidden" name="_captcha" value="false" />
               <div class="form-row">
                 <div class="form-field">
                   <label for="firstName">First Name</label>
@@ -1208,26 +1268,37 @@
       <div class="overlay" id="overlay" aria-hidden="true">
         <div class="overlay-card" id="overlayCard">
           <button class="overlay-close" id="overlayClose" aria-label="Close">×</button>
-          <div class="overlay-media" id="overlayMedia"></div>
+          <div class="overlay-media">
+            <div class="overlay-media-header">
+              <div class="overlay-title-stack">
+                <div class="project-index" id="overlayIndex">01</div>
+                <h3 id="overlayTitle">Project Title</h3>
+                <div class="overlay-media-tags" id="overlayMediaTags">E-LEARNING • UI SYSTEM • TEMPLATE</div>
+              </div>
+              <div class="overlay-symbolic" id="overlaySymbol"></div>
+            </div>
+          </div>
           <div class="overlay-body">
-            <div class="project-index" id="overlayIndex">01</div>
-            <h3 id="overlayTitle">Project Title</h3>
-            <p id="overlayDescription"></p>
-            <div class="overlay-meta" id="overlayMeta"></div>
-            <div class="overlay-actions">
-              <a class="btn solid small disabled" id="overlayLink" href="#" target="_blank" rel="noopener">Open Project</a>
-            </div>
-            <div class="overlay-section">
-              <h4>Mockup</h4>
-              <div class="overlay-mockup" id="overlayMockup"></div>
-            </div>
-            <div class="overlay-section">
-              <h4>What It Is</h4>
-              <p id="overlayAbout"></p>
-            </div>
-            <div class="overlay-section">
-              <h4>How It Was Made</h4>
-              <p id="overlayMade"></p>
+            <div class="overlay-columns">
+              <div class="overlay-col">
+                <div class="overlay-section">
+                  <h4>Mockup</h4>
+                  <div class="overlay-mockup" id="overlayMockup"></div>
+                </div>
+              </div>
+              <div class="overlay-col">
+                <div class="overlay-section">
+                  <h4>What It Is</h4>
+                  <p id="overlayAbout"></p>
+                </div>
+                <div class="overlay-section">
+                  <h4>How It Was Made</h4>
+                  <p id="overlayMade"></p>
+                </div>
+                <div class="overlay-actions">
+                  <a class="btn solid small disabled" id="overlayLink" href="#" target="_blank" rel="noopener">Open Project</a>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -1330,15 +1401,14 @@
       const overlay = document.getElementById("overlay");
       const overlayCard = document.getElementById("overlayCard");
       const overlayClose = document.getElementById("overlayClose");
-      const overlayMedia = document.getElementById("overlayMedia");
       const overlayIndex = document.getElementById("overlayIndex");
       const overlayTitle = document.getElementById("overlayTitle");
-      const overlayDescription = document.getElementById("overlayDescription");
-      const overlayMeta = document.getElementById("overlayMeta");
       const overlayAbout = document.getElementById("overlayAbout");
       const overlayMade = document.getElementById("overlayMade");
       const overlayMockup = document.getElementById("overlayMockup");
       const overlayLink = document.getElementById("overlayLink");
+      const overlaySymbol = document.getElementById("overlaySymbol");
+      const overlayMediaTags = document.getElementById("overlayMediaTags");
 
       function openOverlay(card) {
         const id = card.dataset.project;
@@ -1347,9 +1417,8 @@
 
         overlayIndex.textContent = data.index;
         overlayTitle.textContent = data.title;
-        overlayDescription.textContent = data.description;
-        overlayMeta.textContent = data.tags.join(" • ");
-        overlayMedia.innerHTML = data.svg;
+        overlayMediaTags.textContent = data.tags.join(" • ");
+        overlaySymbol.innerHTML = data.svg;
         overlayAbout.textContent = data.about || "Project details coming soon.";
         overlayMade.textContent = data.made || "Project details coming soon.";
         overlayMockup.innerHTML = data.mockup || data.svg;
