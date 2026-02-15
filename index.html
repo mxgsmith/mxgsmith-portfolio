@@ -85,7 +85,7 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        gap: 24px;
+        gap: 32px;
       }
 
       .brand {
@@ -382,6 +382,10 @@
         border-color: rgba(63, 85, 104, 0.45);
       }
 
+      .project-row > div:nth-child(2) {
+        padding-left: 12px;
+      }
+
       .project-index {
         font-family: "Work Sans", "Helvetica Neue", sans-serif;
         font-size: 28px;
@@ -427,14 +431,14 @@
 
       .overlay-card {
         width: min(980px, 92vw);
-        max-height: 90vh;
+        height: min(90vh, 760px);
         background: var(--surface);
         border: 1px solid var(--line);
         border-radius: 26px;
         overflow: hidden;
         box-shadow: 0 40px 80px rgba(4, 8, 12, 0.5);
         display: grid;
-        grid-template-columns: 1.1fr 1fr;
+        grid-template-columns: 0.95fr 1.05fr;
       }
 
       .overlay-media {
@@ -459,6 +463,7 @@
         display: grid;
         gap: 16px;
         align-content: start;
+        overflow-y: auto;
       }
 
       .overlay-body h3 {
@@ -482,6 +487,54 @@
         letter-spacing: 0.22em;
         text-transform: uppercase;
         color: var(--muted);
+      }
+
+      .overlay-section {
+        display: grid;
+        gap: 8px;
+        padding-top: 6px;
+      }
+
+      .overlay-section h4 {
+        margin: 0;
+        font-size: 12px;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--accent-2);
+      }
+
+      .overlay-section p {
+        margin: 0;
+        color: var(--muted);
+        line-height: 1.7;
+        font-size: 14px;
+      }
+
+      .overlay-mockup {
+        width: 100%;
+        border-radius: 16px;
+        border: 1px solid var(--line);
+        overflow: hidden;
+        background: var(--surface-2);
+      }
+
+      .overlay-mockup svg,
+      .overlay-mockup img {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+
+      .overlay-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        padding-top: 8px;
+      }
+
+      .btn.disabled {
+        opacity: 0.6;
+        pointer-events: none;
       }
 
       .overlay-close {
@@ -555,7 +608,7 @@
 
       .about-visual {
         width: 100%;
-        height: 240px;
+        height: 280px;
         border-radius: 18px;
         border: 1px solid var(--line);
         background: linear-gradient(130deg, rgba(244, 184, 96, 0.22), rgba(255, 255, 255, 0.8));
@@ -814,7 +867,6 @@
       <header class="nav">
         <div class="nav-inner reveal in">
           <div class="brand">
-            <div class="brand-mark">MX</div>
             <span>Max Grant Smith</span>
           </div>
           <nav class="nav-links" aria-label="Primary">
@@ -899,19 +951,21 @@
               </div>
               <div class="about-copy">
                 <div class="about-block">
-                  <h3>Work Approach</h3>
+                  <h3>My Experience</h3>
                   <p>
-                    I build learning experiences the way architects build spaces: clear intent, strong
+                    I’ve spent 10 years at Google across San Francisco, New York, and now Atlanta. I
+                    build learning experiences the way architects build spaces: clear intent, strong
                     structure, and measured pacing. Each project starts with a single objective, then
                     moves through disciplined systems that balance clarity, tone, and performance.
                   </p>
                 </div>
                 <div class="about-block">
-                  <h3>Collaboration Style</h3>
+                  <h3>My Approach</h3>
                   <p>
                     I work closely with stakeholders to translate complex ideas into clean, scalable
-                    learning systems. The result is focused, modern design that feels confident and
-                    usable without excess.
+                    learning systems. I use AI to accelerate development and iterate quickly, but
+                    every decision is grounded in human judgment and subject-matter context. The
+                    result is focused, modern design that feels confident and usable without excess.
                   </p>
                 </div>
               </div>
@@ -1109,6 +1163,21 @@
             <h3 id="overlayTitle">Project Title</h3>
             <p id="overlayDescription"></p>
             <div class="overlay-meta" id="overlayMeta"></div>
+            <div class="overlay-actions">
+              <a class="btn solid small disabled" id="overlayLink" href="#" target="_blank" rel="noopener">Open Project</a>
+            </div>
+            <div class="overlay-section">
+              <h4>Mockup</h4>
+              <div class="overlay-mockup" id="overlayMockup"></div>
+            </div>
+            <div class="overlay-section">
+              <h4>What It Is</h4>
+              <p id="overlayAbout"></p>
+            </div>
+            <div class="overlay-section">
+              <h4>How It Was Made</h4>
+              <p id="overlayMade"></p>
+            </div>
           </div>
         </div>
       </div>
@@ -1136,7 +1205,13 @@
           title: "Micro-Learning Blueprint",
           description:
             "A one-page learning arc that blends activation, core content, and a knowledge check. Built for fast onboarding and high retention.",
+          about:
+            "A compact, repeatable template that turns complex topics into a clear learning arc with activation, core content, and a knowledge check.",
+          made:
+            "Built with Codex for rapid iteration. The structure is intentionally modular so it can be rebuilt in tools like Articulate or Evolve without losing the pacing.",
           tags: ["E-learning", "UI system", "Template"],
+          url: "https://mxgsmith.github.io/micro-learning-template/",
+          mockup: `<img src="micro-learning-mockup.png" alt="Micro-learning template mockup" />`,
           svg: `
             <svg viewBox="0 0 320 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true">
               <rect width="320" height="200" fill="#f7f2ec"/>
@@ -1154,7 +1229,11 @@
           title: "Microlearning Videos with AI Avatars",
           description:
             "Short-form video lessons using AI avatar narration with consistent brand style.",
+          about: "Project details coming soon.",
+          made: "Project details coming soon.",
           tags: ["Video", "AI", "Learning"],
+          url: "",
+          mockup: "",
           svg: `
             <svg viewBox="0 0 320 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true">
               <rect width="320" height="200" fill="#f7f2ec"/>
@@ -1172,7 +1251,11 @@
           title: "Knowledge Base ChatBot",
           description:
             "Conversational assistant that surfaces answers from internal documentation.",
+          about: "Project details coming soon.",
+          made: "Project details coming soon.",
           tags: ["AI", "Support", "Knowledge"],
+          url: "",
+          mockup: "",
           svg: `
             <svg viewBox="0 0 320 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true">
               <rect width="320" height="200" fill="#f7f2ec"/>
@@ -1201,6 +1284,10 @@
       const overlayTitle = document.getElementById("overlayTitle");
       const overlayDescription = document.getElementById("overlayDescription");
       const overlayMeta = document.getElementById("overlayMeta");
+      const overlayAbout = document.getElementById("overlayAbout");
+      const overlayMade = document.getElementById("overlayMade");
+      const overlayMockup = document.getElementById("overlayMockup");
+      const overlayLink = document.getElementById("overlayLink");
 
       function openOverlay(card) {
         const id = card.dataset.project;
@@ -1212,6 +1299,18 @@
         overlayDescription.textContent = data.description;
         overlayMeta.textContent = data.tags.join(" • ");
         overlayMedia.innerHTML = data.svg;
+        overlayAbout.textContent = data.about || "Project details coming soon.";
+        overlayMade.textContent = data.made || "Project details coming soon.";
+        overlayMockup.innerHTML = data.mockup || data.svg;
+        if (data.url) {
+          overlayLink.href = data.url;
+          overlayLink.classList.remove("disabled");
+          overlayLink.setAttribute("aria-disabled", "false");
+        } else {
+          overlayLink.href = "#";
+          overlayLink.classList.add("disabled");
+          overlayLink.setAttribute("aria-disabled", "true");
+        }
 
         overlay.classList.add("open");
         overlay.setAttribute("aria-hidden", "false");
