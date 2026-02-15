@@ -22,6 +22,8 @@
         --surface-2: #f7f1e7;
         --surface-3: #e6e0d6;
         --shadow: 0 24px 60px rgba(16, 20, 24, 0.18);
+        --faq-arch-pos: -20% 50%;
+        --faq-arch-pos-mobile: -30% 10%;
       }
 
       * {
@@ -726,11 +728,36 @@
         gap: 16px;
       }
 
+      .faq-wrap {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr);
+        gap: 24px;
+        align-items: start;
+      }
+
+      .section.faq-architectural {
+        background-image:
+          radial-gradient(900px 520px at 12% 8%, rgba(244, 184, 96, 0.12), transparent 60%),
+          radial-gradient(900px 520px at 88% 10%, rgba(47, 93, 98, 0.12), transparent 55%),
+          radial-gradient(600px 520px at 50% 80%, rgba(255, 255, 255, 0.5), transparent 70%),
+          url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='900' height='600' viewBox='0 0 900 600'><rect width='900' height='600' fill='none'/><g stroke='%232f5d62' stroke-width='1' fill='none' opacity='0.08'><rect x='40' y='40' width='820' height='520'/><rect x='100' y='90' width='260' height='180'/><rect x='420' y='90' width='340' height='120'/><rect x='420' y='240' width='180' height='180'/><rect x='620' y='240' width='140' height='180'/><path d='M40 160h820M40 300h820M40 440h820'/><path d='M220 90v180M560 90v120M510 240v180M690 240v180'/></g><g stroke='%23f4b860' stroke-width='2' fill='none' opacity='0.06'><circle cx='190' cy='150' r='36'/><circle cx='590' cy='150' r='30'/><circle cx='700' cy='330' r='26'/></g></svg>");
+        background-repeat: no-repeat;
+        background-size: auto, auto, auto, 140%;
+        background-position: left top, right top, center bottom, var(--faq-arch-pos);
+      }
+
       .faq-list details {
         border: 1px solid var(--line);
         border-radius: 16px;
         padding: 16px 18px;
         background: var(--surface);
+        box-shadow: 0 16px 36px rgba(20, 24, 28, 0.06);
+        transition: transform 150ms ease, box-shadow 150ms ease;
+      }
+
+      .faq-list details:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 20px 40px rgba(20, 24, 28, 0.1);
       }
 
       .faq-list summary {
@@ -852,6 +879,15 @@
 
         .about-row {
           grid-template-columns: 1fr;
+        }
+
+        .faq-wrap {
+          grid-template-columns: 1fr;
+        }
+
+        .section.faq-architectural {
+          background-position: left top, right top, center bottom, var(--faq-arch-pos-mobile);
+          background-size: auto, auto, auto, 200%;
         }
       }
 
@@ -1091,25 +1127,40 @@
         </div>
       </section>
 
-      <section class="section tone-c" id="faq">
+      <section class="section tone-c faq-architectural" id="faq">
         <div class="section-inner reveal">
           <div class="section-title">
             <h2>FAQ</h2>
             <span>Quick answers</span>
           </div>
-          <div class="faq-list">
-            <details open>
-              <summary>What types of learning projects do you take on?</summary>
-              <p>Micro-learning, onboarding, internal enablement, and web-based training experiences.</p>
-            </details>
-            <details>
-              <summary>How quickly can a project start?</summary>
-              <p>Most projects can kick off within 2–3 weeks depending on scope and assets.</p>
-            </details>
-            <details>
-              <summary>Do you collaborate with internal teams?</summary>
-              <p>Yes—content owners, SMEs, and design partners are part of the process from day one.</p>
-            </details>
+          <div class="faq-wrap">
+            <div class="faq-list">
+              <details open>
+                <summary>What services do you provide?</summary>
+                <p>
+                  I design and build learning experiences that scale — from e-learning and training videos to
+                  structured knowledge bases and consulting support. Sometimes that means hands-on production.
+                  Other times it means creating systems, templates, or guidance so teams can move faster and more
+                  consistently.
+                </p>
+              </details>
+              <details>
+                <summary>Do you use AI in your work?</summary>
+                <p>
+                  Yes — as a tool, not a replacement. I use AI to speed up development, explore options, and
+                  reduce busywork, while human judgment drives the structure, tone, and final decisions. The goal
+                  isn’t novelty — it’s quality, consistency, and speed.
+                </p>
+              </details>
+              <details>
+                <summary>What kinds of problems do you help teams solve?</summary>
+                <p>
+                  I help teams bring clarity to messy, fast-moving situations — especially when learning content
+                  needs to be built quickly, kept consistent, or scaled across audiences. If things feel
+                  fragmented, unclear, or stuck, that’s usually where I’m most useful.
+                </p>
+              </details>
+            </div>
           </div>
         </div>
       </section>
