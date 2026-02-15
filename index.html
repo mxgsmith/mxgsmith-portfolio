@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&family=Work+Sans:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
     <style>
@@ -34,7 +34,7 @@
       body {
         margin: 0;
         min-height: 100vh;
-        font-family: "IBM Plex Sans", "Helvetica Neue", Arial, sans-serif;
+        font-family: "Work Sans", "Helvetica Neue", Arial, sans-serif;
         font-weight: 400;
         color: var(--ink);
         background:
@@ -70,7 +70,7 @@
         display: flex;
         align-items: center;
         gap: 14px;
-        font-family: "IBM Plex Sans", "Helvetica Neue", sans-serif;
+        font-family: "Work Sans", "Helvetica Neue", sans-serif;
         letter-spacing: 0.32em;
         text-transform: uppercase;
         font-size: 14px;
@@ -143,7 +143,7 @@
 
       .hero h1 {
         margin: 0 0 12px;
-        font-family: "IBM Plex Sans", "Helvetica Neue", sans-serif;
+        font-family: "Fraunces", "Georgia", serif;
         font-size: clamp(44px, 9vw, 96px);
         letter-spacing: 0.04em;
         font-weight: 700;
@@ -174,14 +174,15 @@
       }
 
       .avatar {
-        width: 240px;
-        height: 240px;
+        width: 280px;
+        height: 280px;
         border-radius: 15px;
         border: 1px solid var(--line);
         background: var(--surface);
         display: grid;
         place-items: center;
         overflow: hidden;
+        position: relative;
       }
 
       .avatar img {
@@ -189,7 +190,34 @@
         height: 100%;
         display: block;
         object-fit: cover;
-        object-position: center;
+        object-position: 50% 35%;
+        filter: grayscale(0.5) contrast(1.02);
+      }
+
+      .avatar::before,
+      .avatar::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+      }
+
+      .avatar::before {
+        background: #f6f2ec;
+        mix-blend-mode: screen;
+        opacity: 0.12;
+      }
+
+      .avatar::after {
+        background: linear-gradient(135deg, #3f5568, #c9a27a);
+        mix-blend-mode: multiply;
+        opacity: 0.2;
+      }
+
+      .avatar {
+        box-shadow:
+          0 24px 50px rgba(20, 24, 28, 0.18),
+          inset 0 0 40px rgba(20, 24, 28, 0.2);
       }
 
       .btn {
@@ -253,7 +281,7 @@
 
       .section-title h2 {
         margin: 0;
-        font-family: "IBM Plex Sans", "Helvetica Neue", sans-serif;
+        font-family: "Fraunces", "Georgia", serif;
         letter-spacing: 0.12em;
         font-size: clamp(24px, 5vw, 48px);
         font-weight: 600;
@@ -296,7 +324,7 @@
       }
 
       .project-index {
-        font-family: "IBM Plex Sans", "Helvetica Neue", sans-serif;
+        font-family: "Work Sans", "Helvetica Neue", sans-serif;
         font-size: 28px;
         letter-spacing: 0.2em;
         color: var(--accent-2);
@@ -718,32 +746,29 @@
       <section class="section tone-a" id="top">
         <svg class="motion-bg" viewBox="0 0 1200 400" preserveAspectRatio="none" aria-hidden="true">
           <path
-            d="M0 120 C260 60 420 160 650 120 C880 80 1020 40 1200 100"
-            fill="none"
-            stroke-width="1.4"
-          >
-            <animate attributeName="d" dur="10s" repeatCount="indefinite"
-              values="
-                M0 120 C260 60 420 160 650 120 C880 80 1020 40 1200 100;
-                M0 140 C280 80 440 180 660 130 C900 90 1040 60 1200 120;
-                M0 120 C260 60 420 160 650 120 C880 80 1020 40 1200 100
-              "
-            />
-          </path>
-          <path
-            d="M0 220 C240 180 420 260 650 220 C880 180 1020 140 1200 190"
+            d="M0 120 L1200 120"
             fill="none"
             stroke-width="1"
-            opacity="0.6"
-          >
-            <animate attributeName="d" dur="12s" repeatCount="indefinite"
-              values="
-                M0 220 C240 180 420 260 650 220 C880 180 1020 140 1200 190;
-                M0 240 C260 200 440 300 660 240 C900 200 1040 170 1200 220;
-                M0 220 C240 180 420 260 650 220 C880 180 1020 140 1200 190
-              "
-            />
-          </path>
+            opacity="0.35"
+          />
+          <path
+            d="M0 200 L1200 200"
+            fill="none"
+            stroke-width="1"
+            opacity="0.25"
+          />
+          <path
+            d="M80 60 L340 340 L620 80 L980 320"
+            fill="none"
+            stroke-width="1.2"
+            opacity="0.3"
+          />
+          <path
+            d="M120 80 L120 320 M340 60 L340 340 M620 80 L620 320 M980 60 L980 340"
+            fill="none"
+            stroke-width="0.8"
+            opacity="0.2"
+          />
         </svg>
 
         <div class="section-inner hero">
