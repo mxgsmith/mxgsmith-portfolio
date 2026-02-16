@@ -677,14 +677,12 @@
         display: grid;
         place-items: center;
         background:
-          radial-gradient(360px 220px at 30% 30%, rgba(91, 118, 138, 0.28), transparent 60%),
-          radial-gradient(360px 220px at 70% 20%, rgba(52, 78, 96, 0.22), transparent 55%),
           url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='520' height='520' viewBox='0 0 520 520'><rect width='520' height='520' fill='none'/><g stroke='%234b555d' stroke-width='1.4' fill='none' opacity='0.18'><rect x='30' y='30' width='460' height='460'/><rect x='80' y='80' width='180' height='140'/><rect x='80' y='250' width='180' height='140'/><rect x='300' y='120' width='160' height='220'/><path d='M30 160h460M30 300h460M30 420h460'/><path d='M170 80v140M170 250v140M380 120v220'/></g><g stroke='%2386a1b3' stroke-width='2' fill='none' opacity='0.16'><circle cx='170' cy='150' r='28'/><circle cx='170' cy='320' r='28'/><circle cx='380' cy='230' r='26'/></g></svg>");
-        background-color: #d7dde0;
+        background-color: #eef1f3;
         background-repeat: no-repeat;
         background-size: cover;
         background-position: center;
-        border-right: 1px solid rgba(20, 26, 31, 0.16);
+        border-right: none;
         box-shadow: inset -8px 0 20px rgba(20, 26, 31, 0.08);
       }
 
@@ -870,6 +868,12 @@
         display: grid;
         gap: 16px;
         justify-items: center;
+      }
+
+      .footer-name {
+        font-size: 13px;
+        letter-spacing: 0.22em;
+        color: var(--ink);
       }
 
       .reveal {
@@ -1344,7 +1348,7 @@
             </svg>
           </a>
         </div>
-        <div>MXGSmith Portfolio</div>
+        <div class="footer-name">Max Grant Smith</div>
       </footer>
     </div>
     <script>
