@@ -345,6 +345,7 @@
         font-size: 12px;
         letter-spacing: 0.16em;
         color: var(--muted);
+        text-transform: uppercase;
       }
 
       .project-rows {
@@ -636,11 +637,19 @@
         gap: 28px;
       }
 
+      .about-feature-card {
+        border: 1px solid var(--line);
+        border-radius: 22px;
+        padding: 0;
+        background: var(--surface);
+        box-shadow: 0 18px 46px rgba(20, 24, 28, 0.08);
+        overflow: hidden;
+      }
+
       .about-row {
-        display: grid;
-        grid-template-columns: minmax(240px, 340px) 1fr;
+        display: flex;
         gap: 28px;
-        align-items: center;
+        align-items: stretch;
       }
 
       .about-block,
@@ -664,25 +673,31 @@
       }
 
       .about-visual {
-        width: 100%;
-        height: 280px;
-        border-radius: 18px;
-        border: 1px solid var(--line);
-        background: linear-gradient(130deg, rgba(244, 184, 96, 0.22), rgba(255, 255, 255, 0.8));
+        flex: 0 0 320px;
         display: grid;
         place-items: center;
-        overflow: hidden;
+        background:
+          radial-gradient(360px 220px at 30% 30%, rgba(91, 118, 138, 0.28), transparent 60%),
+          radial-gradient(360px 220px at 70% 20%, rgba(52, 78, 96, 0.22), transparent 55%),
+          url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='520' height='520' viewBox='0 0 520 520'><rect width='520' height='520' fill='none'/><g stroke='%234b555d' stroke-width='1.4' fill='none' opacity='0.18'><rect x='30' y='30' width='460' height='460'/><rect x='80' y='80' width='180' height='140'/><rect x='80' y='250' width='180' height='140'/><rect x='300' y='120' width='160' height='220'/><path d='M30 160h460M30 300h460M30 420h460'/><path d='M170 80v140M170 250v140M380 120v220'/></g><g stroke='%2386a1b3' stroke-width='2' fill='none' opacity='0.16'><circle cx='170' cy='150' r='28'/><circle cx='170' cy='320' r='28'/><circle cx='380' cy='230' r='26'/></g></svg>");
+        background-color: #d7dde0;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        border-right: 1px solid rgba(20, 26, 31, 0.16);
+        box-shadow: inset -8px 0 20px rgba(20, 26, 31, 0.08);
       }
 
       .about-visual svg {
-        width: 100%;
-        height: 100%;
+        width: 96%;
+        height: auto;
         display: block;
       }
 
       .about-copy {
         display: grid;
         gap: 16px;
+        padding: 28px 28px 28px 0;
       }
 
       .about-cards {
@@ -933,7 +948,17 @@
         }
 
         .about-row {
-          grid-template-columns: 1fr;
+          flex-direction: column;
+        }
+
+        .about-visual {
+          width: 100%;
+          flex-basis: auto;
+          padding: 18px;
+        }
+
+        .about-copy {
+          padding: 0 24px 24px;
         }
 
         .faq-wrap {
@@ -1004,7 +1029,7 @@
         <div class="section-inner hero reveal in">
           <div class="hero-copy reveal in">
             <div class="hero-kicker">Learning Experience Design</div>
-            <h1>Hi, I'm Max</h1>
+            <h1>Hi, I'm Max.</h1>
             <p>
               I help businesses build scalable and meaningful learning experiences.
             </p>
@@ -1028,40 +1053,42 @@
             <span>Process + values</span>
           </div>
           <div class="about-wrap">
-            <div class="about-row">
-              <div class="about-visual" aria-label="Compass graphic">
-                <svg viewBox="0 0 320 240" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true">
-                <rect width="320" height="240" fill="none"/>
-                  <circle cx="160" cy="120" r="76" fill="none" stroke="#2f5d62" stroke-width="2" opacity="0.7"/>
-                  <circle cx="160" cy="120" r="52" fill="none" stroke="#9aa6b2" stroke-width="2"/>
-                  <circle cx="160" cy="120" r="6" fill="#f4b860"/>
-                  <path d="M160 40v20M160 180v20M80 120h20M220 120h20" stroke="#9aa6b2" stroke-width="2"/>
-                  <path d="M160 70l20 50-20 50-20-50z" fill="#f7f1e7" stroke="#2f5d62" stroke-width="1.5"/>
-                  <path d="M160 85l12 35-12 35-12-35z" fill="#f4b860" opacity="0.4"/>
-                  <text x="160" y="38" text-anchor="middle" fill="#2f5d62" font-size="12" font-family="Space Grotesk">N</text>
-                  <text x="160" y="214" text-anchor="middle" fill="#9aa6b2" font-size="12" font-family="Space Grotesk">S</text>
-                  <text x="62" y="124" text-anchor="middle" fill="#9aa6b2" font-size="12" font-family="Space Grotesk">W</text>
-                  <text x="258" y="124" text-anchor="middle" fill="#9aa6b2" font-size="12" font-family="Space Grotesk">E</text>
-                </svg>
-              </div>
-              <div class="about-copy">
-                <div class="about-block">
-                  <h3>My Experience</h3>
-                  <p>
-                    I’ve spent <strong>10 years at Google</strong> across San Francisco, New York, and now <strong>Atlanta</strong>. I
-                    build learning experiences the way architects build spaces: clear intent, strong
-                    structure, and measured pacing. Each project starts with a single objective, then
-                    moves through disciplined systems that balance clarity, tone, and performance.
-                  </p>
+            <div class="about-feature-card">
+              <div class="about-row">
+                <div class="about-visual" aria-label="Compass graphic">
+                  <svg viewBox="0 0 320 240" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true">
+                    <rect width="320" height="240" fill="none"/>
+                    <circle cx="160" cy="120" r="76" fill="none" stroke="#2f5d62" stroke-width="2" opacity="0.7"/>
+                    <circle cx="160" cy="120" r="52" fill="none" stroke="#9aa6b2" stroke-width="2"/>
+                    <circle cx="160" cy="120" r="6" fill="#f4b860"/>
+                    <path d="M160 40v20M160 180v20M80 120h20M220 120h20" stroke="#9aa6b2" stroke-width="2"/>
+                    <path d="M160 70l20 50-20 50-20-50z" fill="#f7f1e7" stroke="#2f5d62" stroke-width="1.5"/>
+                    <path d="M160 85l12 35-12 35-12-35z" fill="#f4b860" opacity="0.4"/>
+                    <text x="160" y="38" text-anchor="middle" fill="#2f5d62" font-size="12" font-family="Space Grotesk">N</text>
+                    <text x="160" y="214" text-anchor="middle" fill="#9aa6b2" font-size="12" font-family="Space Grotesk">S</text>
+                    <text x="62" y="124" text-anchor="middle" fill="#9aa6b2" font-size="12" font-family="Space Grotesk">W</text>
+                    <text x="258" y="124" text-anchor="middle" fill="#9aa6b2" font-size="12" font-family="Space Grotesk">E</text>
+                  </svg>
                 </div>
-                <div class="about-block">
-                  <h3>My Approach</h3>
-                  <p>
-                    I work closely with stakeholders to translate complex ideas into clean, scalable
-                    learning systems. I use AI to accelerate development and iterate quickly, but
-                    every decision is grounded in human judgment and subject-matter context. The
-                    result is focused, modern design that feels confident and usable without excess.
-                  </p>
+                <div class="about-copy">
+                  <div class="about-block">
+                    <h3>My Experience</h3>
+                    <p>
+                      I’ve spent <strong>10 years at Google</strong> across San Francisco, New York, and now <strong>Atlanta</strong>. I
+                      build learning experiences the way architects build spaces: clear intent, strong
+                      structure, and measured pacing. Each project starts with a single objective, then
+                      moves through disciplined systems that balance clarity, tone, and performance.
+                    </p>
+                  </div>
+                  <div class="about-block">
+                    <h3>My Approach</h3>
+                    <p>
+                      I work closely with stakeholders to translate complex ideas into clean, scalable
+                      learning systems. I use AI to accelerate development and iterate quickly, but
+                      every decision is grounded in human judgment and subject-matter context. The
+                      result is focused, modern design that feels confident and usable without excess.
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
