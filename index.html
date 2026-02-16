@@ -642,7 +642,6 @@
         border-radius: 22px;
         padding: 0;
         background: var(--surface);
-        box-shadow: 0 18px 46px rgba(20, 24, 28, 0.08);
         overflow: hidden;
       }
 
@@ -677,13 +676,13 @@
         display: grid;
         place-items: center;
         background:
-          url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='520' height='520' viewBox='0 0 520 520'><rect width='520' height='520' fill='none'/><g stroke='%234b555d' stroke-width='1.4' fill='none' opacity='0.18'><rect x='30' y='30' width='460' height='460'/><rect x='80' y='80' width='180' height='140'/><rect x='80' y='250' width='180' height='140'/><rect x='300' y='120' width='160' height='220'/><path d='M30 160h460M30 300h460M30 420h460'/><path d='M170 80v140M170 250v140M380 120v220'/></g><g stroke='%2386a1b3' stroke-width='2' fill='none' opacity='0.16'><circle cx='170' cy='150' r='28'/><circle cx='170' cy='320' r='28'/><circle cx='380' cy='230' r='26'/></g></svg>");
-        background-color: #eef1f3;
+          url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='520' height='520' viewBox='0 0 520 520'><rect width='520' height='520' fill='none'/><g stroke='%23464f57' stroke-width='1.6' fill='none' opacity='0.22'><rect x='30' y='30' width='460' height='460'/><rect x='80' y='80' width='180' height='140'/><rect x='80' y='250' width='180' height='140'/><rect x='300' y='120' width='160' height='220'/><path d='M30 160h460M30 300h460M30 420h460'/><path d='M170 80v140M170 250v140M380 120v220'/></g><g stroke='%2386a1b3' stroke-width='2' fill='none' opacity='0.18'><circle cx='170' cy='150' r='28'/><circle cx='170' cy='320' r='28'/><circle cx='380' cy='230' r='26'/></g></svg>");
+        background-color: #ffffff;
         background-repeat: no-repeat;
         background-size: cover;
         background-position: center;
         border-right: none;
-        box-shadow: inset -8px 0 20px rgba(20, 26, 31, 0.08);
+        box-shadow: none;
       }
 
       .about-visual svg {
@@ -994,8 +993,8 @@
             <span>Max Grant Smith</span>
           </div>
           <nav class="nav-links" aria-label="Primary">
-            <a href="#projects">Projects</a>
             <a href="#about">About</a>
+            <a href="#projects">Projects</a>
             <a href="#contact">Contact</a>
           </nav>
           <a class="btn solid small" href="#contact">Start a Project</a>
@@ -1038,8 +1037,8 @@
               I help businesses build scalable and meaningful learning experiences.
             </p>
             <div class="hero-actions">
-              <a class="btn solid" href="#projects">View Projects</a>
-              <a class="btn" href="#about">About Me</a>
+              <a class="btn solid" href="#about">About Me</a>
+              <a class="btn" href="#projects">View Projects</a>
             </div>
           </div>
           <div class="hero-identity reveal in">
@@ -1075,15 +1074,16 @@
                   </svg>
                 </div>
                 <div class="about-copy">
-                  <div class="about-block">
-                    <h3>My Experience</h3>
-                    <p>
-                      I’ve spent <strong>10 years at Google</strong> across San Francisco, New York, and now <strong>Atlanta</strong>. I
-                      build learning experiences the way architects build spaces: clear intent, strong
-                      structure, and measured pacing. Each project starts with a single objective, then
-                      moves through disciplined systems that balance clarity, tone, and performance.
-                    </p>
-                  </div>
+                <div class="about-block">
+                  <h3>My Experience</h3>
+                  <p>
+                    I’ve spent <strong>10 years at Google</strong> across Policy, Operations, and Support teams, and I’ve
+                    trained over <strong>10,000 learners</strong> across global teams and vendor partners. I build
+                    learning experiences the way architects build spaces: clear intent, strong structure,
+                    and measured pacing. Each project starts with a single objective, then moves through
+                    disciplined systems that balance clarity, tone, and performance.
+                  </p>
+                </div>
                   <div class="about-block">
                     <h3>My Approach</h3>
                     <p>
@@ -1097,10 +1097,10 @@
               </div>
             </div>
 
-            <div class="about-cards">
-              <div class="about-card">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
-                  <path d="M12 2l7 4v6c0 5-3.5 8.5-7 10-3.5-1.5-7-5-7-10V6l7-4z"/>
+          <div class="about-cards">
+            <div class="about-card">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+                <path d="M12 2l7 4v6c0 5-3.5 8.5-7 10-3.5-1.5-7-5-7-10V6l7-4z"/>
                   <path d="M12 6v4m0 4h.01"/>
                 </svg>
                 <h4>Capabilities</h4>
@@ -1114,16 +1114,16 @@
                 <h4>Outcomes</h4>
                 <p>Shorter ramp time, higher completion, and clearer handoffs through reusable systems.</p>
               </div>
-              <div class="about-card">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
-                  <path d="M4 18v-2a4 4 0 0 1 4-4h8a4 4 0 0 1 4 4v2"/>
-                  <circle cx="9" cy="8" r="3"/>
-                  <circle cx="15" cy="8" r="3"/>
-                </svg>
-                <h4>Principles</h4>
-                <p>Clarity over cleverness, momentum over bloat, and design that earns trust.</p>
-              </div>
+            <div class="about-card">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+                <path d="M4 18v-2a4 4 0 0 1 4-4h8a4 4 0 0 1 4 4v2"/>
+                <circle cx="9" cy="8" r="3"/>
+                <circle cx="15" cy="8" r="3"/>
+              </svg>
+              <h4>Principles</h4>
+              <p>Clarity over cleverness, momentum over bloat, and design that earns trust.</p>
             </div>
+          </div>
           </div>
         </div>
       </section>
@@ -1359,7 +1359,7 @@
           description:
             "A one-page learning arc that blends activation, core content, and a knowledge check. Built for fast onboarding and high retention.",
           about:
-            "A compact, repeatable template that turns complex topics into a clear learning arc with activation, core content, and a knowledge check.",
+            "A compact, repeatable template that turns complex topics into a clear learning arc with activation, core content, and a knowledge check. It’s a great handoff template for junior instructional designers to build modularized content at scale.",
           made:
             "Built with Codex for rapid iteration. The structure is intentionally modular so it can be rebuilt in tools like Articulate or Evolve without losing the pacing.",
           tags: ["E-learning", "UI system", "Template"],
@@ -1411,7 +1411,7 @@
           made:
             "Built with Google’s AI Studio. I used ChatGPT to draft 100+ knowledge base articles and structured them into JSON files to configure the model and responses.",
           tags: ["AI", "Support", "Knowledge"],
-          url: "",
+          url: "https://layerone-knowledge-nexus-64586899124.us-west1.run.app",
           mockup: "",
           svg: `
             <svg viewBox="0 0 320 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true">
