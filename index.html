@@ -460,7 +460,7 @@
         width: min(820px, 100%);
         display: flex;
         align-items: center;
-        justify-content: space-between;
+        justify-content: flex-start;
         gap: 18px;
         padding: 6px 0;
       }
@@ -473,35 +473,9 @@
         color: var(--muted);
       }
 
-      .overlay-title-row {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 16px;
-      }
-
       .overlay-title-stack {
         display: grid;
         gap: 6px;
-      }
-
-      .overlay-symbolic {
-        width: 140px;
-        height: 90px;
-        border-radius: 12px;
-        border: 1px solid var(--line);
-        background: var(--surface-2);
-        display: grid;
-        place-items: center;
-        overflow: hidden;
-      }
-
-      .overlay-symbolic svg {
-        width: 100%;
-        height: 100%;
-        display: block;
-        transform: scale(0.82);
-        transform-origin: center;
       }
 
       .overlay-body {
@@ -1174,7 +1148,7 @@
               </div>
               <div>
                 <div class="project-index">02</div>
-                <h3>Video Based Learning using AI Avatars</h3>
+                <h3>Interactive Videos & AI Avatars</h3>
                 <p>Short-form video lessons using AI avatar narration with consistent brand style.</p>
               </div>
               <div class="project-tags">
@@ -1204,7 +1178,7 @@
               </div>
               <div>
                 <div class="project-index">03</div>
-                <h3>Knowledge Base ChatBot</h3>
+                <h3>Knowledge Base Chatbot</h3>
                 <p>Conversational assistant that surfaces answers from internal documentation.</p>
               </div>
               <div class="project-tags">
@@ -1306,7 +1280,6 @@
                 <h3 id="overlayTitle">Project Title</h3>
                 <div class="overlay-media-tags" id="overlayMediaTags">E-LEARNING • UI SYSTEM • TEMPLATE</div>
               </div>
-              <div class="overlay-symbolic" id="overlaySymbol"></div>
             </div>
           </div>
           <div class="overlay-body">
@@ -1379,16 +1352,16 @@
         },
         hub: {
           index: "02",
-          title: "Video Based Learning using AI Avatars",
+          title: "Interactive Videos & AI Avatars",
           description:
-            "AI avatar-driven video lessons designed for speed, consistency, and engagement.",
+            "Interactive video for scenario-based learning using AI avatars.",
           about:
-            "I was one of the first training leads to bring Synthesia to teams at Google, and I’m amazed at how advanced the software has become over the years. I’ve enjoyed my partnership with the Synthesia team, and using their avatars makes content development high quality, rapid, and engaging.",
+            "An interactive knowledge check where the structure can be reproduced for a variety of topics and scenarios. It makes informal assessment engaging and provides real-world context.",
           made:
-            "I like using this software because once you build a scalable template, you can change the avatars and themes to create what feels like an entirely new experience.",
+            "Built with Synthesia for the avatars and production, plus Google’s Veo for unique scenario videos.",
           tags: ["Video", "AI", "Learning"],
-          url: "",
-          mockup: "",
+          url: "https://share.synthesia.io/24d342f0-5e25-4530-a7a6-0ce9d4266521",
+          mockup: `<img src="avatars-mockup.png" alt="AI avatar learning mockup" />`,
           svg: `
             <svg viewBox="0 0 320 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true">
               <rect width="320" height="200" fill="#f7f2ec"/>
@@ -1403,16 +1376,16 @@
         },
         sprint: {
           index: "03",
-          title: "Knowledge Base ChatBot",
+          title: "Knowledge Base Chatbot",
           description:
             "Conversational assistant that surfaces answers from internal documentation.",
           about:
-            "A prototype chatbot that tests accuracy and speed for in-the-moment learning. You can ask HR questions like “What is the company’s maternity leave policy?” or business questions such as “What’s the current pricing for our product?” The idea: sometimes learning is what you need in the moment, and then you move on with your day.",
+            "A prototype chatbot that tests accuracy and speed for in-the-moment learning. You can ask HR questions like “What is the company’s maternity leave policy?” or business questions such as “What’s the current pricing for our product?” This prototype showcases the value of easily accessible just-in-time learning in the workspace.",
           made:
             "Built with Google’s AI Studio. I used ChatGPT to draft 100+ knowledge base articles and structured them into JSON files to configure the model and responses.",
           tags: ["AI", "Support", "Knowledge"],
           url: "https://layerone-knowledge-nexus-64586899124.us-west1.run.app",
-          mockup: "",
+          mockup: `<img src="chatbot-mockup.png" alt="Knowledge base chatbot mockup" />`,
           svg: `
             <svg viewBox="0 0 320 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true">
               <rect width="320" height="200" fill="#f7f2ec"/>
@@ -1442,7 +1415,6 @@
       const overlayMade = document.getElementById("overlayMade");
       const overlayMockup = document.getElementById("overlayMockup");
       const overlayLink = document.getElementById("overlayLink");
-      const overlaySymbol = document.getElementById("overlaySymbol");
       const overlayMediaTags = document.getElementById("overlayMediaTags");
 
       function openOverlay(card) {
@@ -1453,7 +1425,6 @@
         overlayIndex.textContent = data.index;
         overlayTitle.textContent = data.title;
         overlayMediaTags.textContent = data.tags.join(" • ");
-        overlaySymbol.innerHTML = data.svg;
         overlayAbout.textContent = data.about || "Project details coming soon.";
         overlayMade.textContent = data.made || "Project details coming soon.";
         overlayMockup.innerHTML = data.mockup || data.svg;
